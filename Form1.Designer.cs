@@ -31,26 +31,22 @@
             lblTituloFactura = new Label();
             lblFecha = new Label();
             groupBoxProducto = new GroupBox();
+            CmbProducto = new ComboBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            TxtProducto = new TextBox();
             TxtPrecio = new TextBox();
             TxtCantidad = new TextBox();
             BtnAgregar = new Button();
-            groupBoxDetalle = new GroupBox();
-            TxtDetalle = new ListBox();
-            BtnEliminarProducto = new Button();
-            lblTotal = new Label();
             BtnFinalizar = new Button();
             BtnNuevaFactura = new Button();
             TxtCuit = new TextBox();
-            TxtCliente = new TextBox();
             label2 = new Label();
             Cliente = new Label();
             groupBoxCliente = new GroupBox();
+            CmbCliente = new ComboBox();
+            PnlDetalle = new Panel();
             groupBoxProducto.SuspendLayout();
-            groupBoxDetalle.SuspendLayout();
             groupBoxCliente.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,21 +74,29 @@
             // 
             // groupBoxProducto
             // 
+            groupBoxProducto.Controls.Add(CmbProducto);
             groupBoxProducto.Controls.Add(label3);
             groupBoxProducto.Controls.Add(label4);
             groupBoxProducto.Controls.Add(label5);
-            groupBoxProducto.Controls.Add(TxtProducto);
             groupBoxProducto.Controls.Add(TxtPrecio);
             groupBoxProducto.Controls.Add(TxtCantidad);
             groupBoxProducto.Controls.Add(BtnAgregar);
             groupBoxProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             groupBoxProducto.ForeColor = Color.DarkGreen;
-            groupBoxProducto.Location = new Point(57, 171);
+            groupBoxProducto.Location = new Point(57, 147);
             groupBoxProducto.Name = "groupBoxProducto";
             groupBoxProducto.Size = new Size(820, 120);
             groupBoxProducto.TabIndex = 32;
             groupBoxProducto.TabStop = false;
             groupBoxProducto.Text = " AGREGAR PRODUCTO ";
+            // 
+            // CmbProducto
+            // 
+            CmbProducto.FormattingEnabled = true;
+            CmbProducto.Location = new Point(100, 30);
+            CmbProducto.Name = "CmbProducto";
+            CmbProducto.Size = new Size(360, 25);
+            CmbProducto.TabIndex = 21;
             // 
             // label3
             // 
@@ -127,14 +131,6 @@
             label5.TabIndex = 20;
             label5.Text = "CANTIDAD:";
             // 
-            // TxtProducto
-            // 
-            TxtProducto.Font = new Font("Segoe UI", 9F);
-            TxtProducto.Location = new Point(100, 32);
-            TxtProducto.Name = "TxtProducto";
-            TxtProducto.Size = new Size(690, 23);
-            TxtProducto.TabIndex = 3;
-            // 
             // TxtPrecio
             // 
             TxtPrecio.Font = new Font("Segoe UI", 9F);
@@ -160,62 +156,13 @@
             BtnAgregar.FlatStyle = FlatStyle.Flat;
             BtnAgregar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BtnAgregar.ForeColor = Color.White;
-            BtnAgregar.Location = new Point(650, 60);
+            BtnAgregar.Location = new Point(634, 35);
             BtnAgregar.Name = "BtnAgregar";
-            BtnAgregar.Size = new Size(140, 40);
+            BtnAgregar.Size = new Size(180, 50);
             BtnAgregar.TabIndex = 6;
             BtnAgregar.Text = "AGREGAR";
             BtnAgregar.UseVisualStyleBackColor = false;
             BtnAgregar.Click += BtnAgregar_Click;
-            // 
-            // groupBoxDetalle
-            // 
-            groupBoxDetalle.Controls.Add(TxtDetalle);
-            groupBoxDetalle.Controls.Add(BtnEliminarProducto);
-            groupBoxDetalle.Controls.Add(lblTotal);
-            groupBoxDetalle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            groupBoxDetalle.ForeColor = Color.DarkRed;
-            groupBoxDetalle.Location = new Point(57, 311);
-            groupBoxDetalle.Name = "groupBoxDetalle";
-            groupBoxDetalle.Size = new Size(820, 230);
-            groupBoxDetalle.TabIndex = 33;
-            groupBoxDetalle.TabStop = false;
-            groupBoxDetalle.Text = " DETALLE DE LA FACTURA ";
-            // 
-            // TxtDetalle
-            // 
-            TxtDetalle.Font = new Font("Consolas", 9F);
-            TxtDetalle.FormattingEnabled = true;
-            TxtDetalle.ItemHeight = 14;
-            TxtDetalle.Location = new Point(20, 30);
-            TxtDetalle.Name = "TxtDetalle";
-            TxtDetalle.Size = new Size(620, 158);
-            TxtDetalle.TabIndex = 12;
-            // 
-            // BtnEliminarProducto
-            // 
-            BtnEliminarProducto.BackColor = Color.Firebrick;
-            BtnEliminarProducto.FlatAppearance.BorderSize = 0;
-            BtnEliminarProducto.FlatStyle = FlatStyle.Flat;
-            BtnEliminarProducto.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BtnEliminarProducto.ForeColor = Color.White;
-            BtnEliminarProducto.Location = new Point(660, 30);
-            BtnEliminarProducto.Name = "BtnEliminarProducto";
-            BtnEliminarProducto.Size = new Size(130, 35);
-            BtnEliminarProducto.TabIndex = 7;
-            BtnEliminarProducto.Text = "ELIMINAR PRODUCTO";
-            BtnEliminarProducto.UseVisualStyleBackColor = false;
-            // 
-            // lblTotal
-            // 
-            lblTotal.AutoSize = true;
-            lblTotal.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblTotal.ForeColor = Color.DarkRed;
-            lblTotal.Location = new Point(500, 195);
-            lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(127, 25);
-            lblTotal.TabIndex = 27;
-            lblTotal.Text = "TOTAL: $0.00";
             // 
             // BtnFinalizar
             // 
@@ -224,12 +171,13 @@
             BtnFinalizar.FlatStyle = FlatStyle.Flat;
             BtnFinalizar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             BtnFinalizar.ForeColor = Color.White;
-            BtnFinalizar.Location = new Point(57, 561);
+            BtnFinalizar.Location = new Point(57, 537);
             BtnFinalizar.Name = "BtnFinalizar";
             BtnFinalizar.Size = new Size(620, 50);
             BtnFinalizar.TabIndex = 27;
             BtnFinalizar.Text = "FINALIZAR FACTURA";
             BtnFinalizar.UseVisualStyleBackColor = false;
+            BtnFinalizar.Click += BtnFinalizar_Click;
             // 
             // BtnNuevaFactura
             // 
@@ -238,7 +186,7 @@
             BtnNuevaFactura.FlatStyle = FlatStyle.Flat;
             BtnNuevaFactura.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             BtnNuevaFactura.ForeColor = Color.White;
-            BtnNuevaFactura.Location = new Point(697, 561);
+            BtnNuevaFactura.Location = new Point(691, 537);
             BtnNuevaFactura.Name = "BtnNuevaFactura";
             BtnNuevaFactura.Size = new Size(180, 50);
             BtnNuevaFactura.TabIndex = 28;
@@ -248,25 +196,17 @@
             // TxtCuit
             // 
             TxtCuit.Font = new Font("Segoe UI", 9F);
-            TxtCuit.Location = new Point(90, 67);
+            TxtCuit.Location = new Point(448, 32);
             TxtCuit.Name = "TxtCuit";
             TxtCuit.Size = new Size(220, 23);
             TxtCuit.TabIndex = 2;
-            // 
-            // TxtCliente
-            // 
-            TxtCliente.Font = new Font("Segoe UI", 9F);
-            TxtCliente.Location = new Point(90, 32);
-            TxtCliente.Name = "TxtCliente";
-            TxtCliente.Size = new Size(700, 23);
-            TxtCliente.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(20, 70);
+            label2.Location = new Point(406, 35);
             label2.Name = "label2";
             label2.Size = new Size(36, 15);
             label2.TabIndex = 17;
@@ -285,37 +225,54 @@
             // 
             // groupBoxCliente
             // 
+            groupBoxCliente.Controls.Add(CmbCliente);
             groupBoxCliente.Controls.Add(Cliente);
             groupBoxCliente.Controls.Add(label2);
-            groupBoxCliente.Controls.Add(TxtCliente);
             groupBoxCliente.Controls.Add(TxtCuit);
             groupBoxCliente.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             groupBoxCliente.ForeColor = Color.DarkBlue;
             groupBoxCliente.Location = new Point(57, 61);
             groupBoxCliente.Name = "groupBoxCliente";
-            groupBoxCliente.Size = new Size(820, 104);
+            groupBoxCliente.Size = new Size(820, 71);
             groupBoxCliente.TabIndex = 31;
             groupBoxCliente.TabStop = false;
             groupBoxCliente.Text = " DATOS DEL CLIENTE ";
+            // 
+            // CmbCliente
+            // 
+            CmbCliente.FormattingEnabled = true;
+            CmbCliente.Location = new Point(81, 30);
+            CmbCliente.Name = "CmbCliente";
+            CmbCliente.Size = new Size(279, 25);
+            CmbCliente.TabIndex = 18;
+            // 
+            // PnlDetalle
+            // 
+            PnlDetalle.AutoScroll = true;
+            PnlDetalle.BackColor = SystemColors.AppWorkspace;
+            PnlDetalle.BorderStyle = BorderStyle.FixedSingle;
+            PnlDetalle.Location = new Point(57, 294);
+            PnlDetalle.Name = "PnlDetalle";
+            PnlDetalle.Size = new Size(820, 215);
+            PnlDetalle.TabIndex = 33;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(934, 622);
+            Controls.Add(PnlDetalle);
             Controls.Add(lblTituloFactura);
             Controls.Add(lblFecha);
             Controls.Add(groupBoxCliente);
             Controls.Add(groupBoxProducto);
-            Controls.Add(groupBoxDetalle);
             Controls.Add(BtnFinalizar);
             Controls.Add(BtnNuevaFactura);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Sistema de Facturacion";
+            Load += Form1_Load;
             groupBoxProducto.ResumeLayout(false);
             groupBoxProducto.PerformLayout();
-            groupBoxDetalle.ResumeLayout(false);
-            groupBoxDetalle.PerformLayout();
             groupBoxCliente.ResumeLayout(false);
             groupBoxCliente.PerformLayout();
             ResumeLayout(false);
@@ -330,20 +287,17 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox TxtProducto;
         private TextBox TxtPrecio;
         private TextBox TxtCantidad;
         private Button BtnAgregar;
-        private GroupBox groupBoxDetalle;
-        private ListBox TxtDetalle;
-        private Button BtnEliminarProducto;
-        private Label lblTotal;
         private Button BtnFinalizar;
         private Button BtnNuevaFactura;
         private TextBox TxtCuit;
-        private TextBox TxtCliente;
         private Label label2;
         private Label Cliente;
         private GroupBox groupBoxCliente;
+        private ComboBox CmbCliente;
+        private Panel PnlDetalle;
+        private ComboBox CmbProducto;
     }
 }
